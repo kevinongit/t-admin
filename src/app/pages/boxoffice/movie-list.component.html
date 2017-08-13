@@ -1,0 +1,30 @@
+<h2>Box Office</h2>
+ <!-- <div class="media" *ngFor="let movie of movies">
+   <div class="media-left">
+    <em> {{movie.rank}} </em>
+  </div>
+  <div class="media-left media-middle">
+    <a (click)="selectMovie.emit(movie)">
+      <img class="media-object" width="80" height="120" src="{{movie.thumbnail}}" alt="{{movie.name}}">
+    </a>
+  </div>
+  <div class="media-body">
+    <h5 class="media-heading">{{movie.name}} </h5> <span> ({{movie.engName}})</span>
+    <p> 평점 : </p>
+    <p>개봉일 : {{movie.openDay}}</p>
+  </div>
+</div>   -->
+<div card-group>
+ <div class="card-deck">
+    <div class="card" style="width: 20rem" *ngFor="let movie of movies">
+        <img class="img-fluid" src="{{movie.thumbnail}}" alt="{{movie.name}}">
+        <div class="card-block">
+            <a (clikc)="selectMovie.emit(movie)" routerLink="/detail" routeLinkActive="active">
+            <h4 class="card-title">{{movie.rank}}. {{movie.name}}</h4>
+            </a>
+            <p class="card-text"> 개봉일 : {{movie.openDay}} </p>
+            <a href="#" class="btn btn-primary">Button</a>
+        </div>
+    </div>
+ </div>
+</div> 

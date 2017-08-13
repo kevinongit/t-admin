@@ -1,0 +1,73 @@
+
+   <div *ngIf="movieDetail">
+
+    <h3> 영화 상세 정보 (from daum) </h3>
+
+    <!--<button (click)="goBack()"> Back </button>-->
+    <!--<a [routerLink]="['/boxoffice']"> Back </a>-->
+    <!--<a [routerLink]="['/boxoffice', movie.rank]">-->
+
+    <ul class="movie-detail">
+      <li> 
+        <a href="{{movieDetail.title[0].link}}"> {{movieDetail.title[0].content}} </a> 
+        ({{movieDetail.engName}}, {{movieDetail.year}})
+      </li>
+      <li> 
+        <span *ngFor="let genre of movieDetail.genre; let isLast=last"> {{genre.content}} {{isLast ? '' : ', '}} </span>
+      </li>
+      <li> {{movieDetail.openDay}} 개봉 </li>
+      
+      <li>  
+        <span *ngFor="let actor of movieDetail.actor; let isLast=last"> 
+          <a href="{{actor.link}}"> {{actor.content}} </a> {{isLast ? '' : ', '}} 
+        </span>
+      </li>
+      <li> 평점 : ... </li>
+      <li> 스토리 : <br>
+        {{movieDetail.story}} 
+      </li>
+      <li>
+        <img src="{{movieDetail.thumbnail}}" />
+
+        <!-- <div style="height: 305px;width: 250px">
+          <div uib-carousel active="active" interval="2000" no-wrap="noWrapSlides">
+            <div uib-slide ng-repeat="slide in $ctrl.slides track by slide.id" index="slide.id">
+              <img ng-src="{{slide.image}}" style="margin:auto;">
+              <div class="carousel-caption">
+                <h4>Slide {{slide.id}}</h4>
+                <p>{{slide.text}}</p>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </li>
+<!--       <li> <span ng-repeat="genre in $ctrl.movie.genre"> {{genre.content}} {{$last ? '' : ', '}} </span></li>
+      <li> {{$ctrl.movie.open_info[0].content}} 개봉 </li>
+      <li> {{$ctrl.movie.open_info[2].content}}, {{$ctrl.movie.open_info[1].content}} </li>
+      <li>  
+        <span ng-repeat="actor in $ctrl.movie.actor"> 
+          <a ng-href="{{actor.link}}"> {{actor.content}} </a> {{$last ? '' : ', '}} 
+        </span>
+      </li>
+      <li> 평점 : {{$ctrl.movie.grades[0].content}} </li>
+      <li> 스토리 : <br>
+        {{$ctrl.movie.story[0].content}} 
+      </li>
+      <li>
+        <img ng-src="{{$ctrl.movie.thumbnail[0].content}}" />
+
+        <div style="height: 305px;width: 250px">
+          <div uib-carousel active="active" interval="2000" no-wrap="noWrapSlides">
+            <div uib-slide ng-repeat="slide in $ctrl.slides track by slide.id" index="slide.id">
+              <img ng-src="{{slide.image}}" style="margin:auto;">
+              <div class="carousel-caption">
+                <h4>Slide {{slide.id}}</h4>
+                <p>{{slide.text}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li> -->
+    </ul>
+
+  </div>

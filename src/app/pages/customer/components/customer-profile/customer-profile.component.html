@@ -1,0 +1,8 @@
+
+<customer-profile-search
+    (doSearch)="onSearch($event)">
+</customer-profile-search>
+<customer-profile-list
+    [data]="(customer-profileModel$ | async)?.customer-profile"
+    >
+</customer-profile-list>

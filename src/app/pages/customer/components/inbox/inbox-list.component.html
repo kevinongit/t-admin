@@ -1,0 +1,14 @@
+<div *ngIf="data">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th *ngFor="let column of data.majorColumns"> {{column}} </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of data.allMajorRows">
+                <td *ngFor="let item of row"> {{item}} </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

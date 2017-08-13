@@ -1,0 +1,16 @@
+<!--<top-nav></top-nav>
+<sidebar-cmp></sidebar-cmp>-->
+<!--<section class="main-container" [ngClass]="{sidebarPushRight: isActive}">
+	<div class="container">-->
+		<div class="row">
+			<movie-list 
+				[movies]="(boxofficeModel$ | async)?.movies"
+				(selectMovie)="onSelectMovie($event)">
+			</movie-list>
+		</div>
+		<!-- <div class="col-sm-8">
+			<movie-detail [movieDetail]="(boxofficeModel$ | async)?.selectedMovie">
+			</movie-detail>
+		</div> -->
+	<!--</div>
+</section>-->
