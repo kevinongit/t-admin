@@ -17,6 +17,7 @@ import { InboxComponent } from './inbox.component'
 import { InboxService } from './services/inbox.service'
 import { InboxListComponent } from './inbox-list.component'
 import { InboxSearchComponent } from './inbox-search.component'
+import { InboxItemModal } from './inbox-item-modal'
 
 
 @NgModule({
@@ -36,7 +37,7 @@ import { InboxSearchComponent } from './inbox-search.component'
         // StoreDevtoolsModule.instrumentOnlyWithExtension(),
         // EffectsModule.run(InboxEffects)
     ],
-    declarations: [ InboxComponent, InboxListComponent, InboxSearchComponent ],
+    declarations: [ InboxComponent, InboxListComponent, InboxSearchComponent, InboxItemModal ],
     providers: [ InboxService ],
     exports: [ InboxComponent, InboxListComponent, InboxSearchComponent ]
 })
