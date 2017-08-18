@@ -1,5 +1,4 @@
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
-import { InboxItemModal } from './inbox-item-modal';
 
 @Component({
     selector: 'inbox-list',

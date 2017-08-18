@@ -1,10 +1,13 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'inbox-item-modal',
-  templateUrl: './inbox-item-modal.html'
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  templateUrl: './inbox-item-modal.html',
+  styleUrls: ['./inbox-item-modal.css'],
+  // encapsulation: ViewEncapsulation.None
 })
 export class InboxItemModal {
   @Input() detail;

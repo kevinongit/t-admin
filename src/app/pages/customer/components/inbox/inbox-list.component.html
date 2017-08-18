@@ -11,7 +11,6 @@
                 <td *ngFor="let item of row"> {{item}} </td>
                 <td align="center" (click)="detail=makeDetail(data, i)">  
                     <inbox-item-modal [detail]="detail">
-                        <i class="ion-document-text"></i>
                     </inbox-item-modal>
                 </td>
             </tr>
