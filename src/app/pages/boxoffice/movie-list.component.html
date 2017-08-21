@@ -19,11 +19,12 @@
     <div class="col-sm-3" style="width: 20rem" *ngFor="let movie of movies">
         <img class="img-fluid" src="{{movie.thumbnail}}" alt="{{movie.name}}">
         <div class="card-block">
-            <a (clikc)="selectMovie.emit(movie)" routerLink="/detail" routeLinkActive="active">
-            <h4 class="card-title">{{movie.rank}}. {{movie.name}}</h4>
+            <!-- <a (click)="selectMovie.emit(movie)" routerLink="detail" routeLinkActive="active"> -->
+            <a [routerLink]="['detail', movie.rank]" routeLinkActive="active">
+              <h4 class="card-title">{{movie.rank}}. {{movie.name}}</h4>
             </a>
             <p class="card-text"> 개봉일 : {{movie.openDay}} </p>
-            <a href="#" class="btn btn-primary">Button</a>
+            <a [routerLink]="['detail', movie.rank]" class="btn btn-primary">상세정보</a>
         </div>
     </div>
  </div>

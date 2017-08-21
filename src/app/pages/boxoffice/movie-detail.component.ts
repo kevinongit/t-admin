@@ -1,6 +1,8 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location } from '@angular/common';
+
+import { MovieService } from './services/movie.service'
 
 @Component({
 	selector: 'movie-detail',
@@ -8,12 +10,21 @@ import { Location } from '@angular/common';
 	templateUrl: './movie-detail.component.html'
 })
 export class MovieDetailComponent {
-	@Input() movieDetail : any;
+	 movieDetail : any;
+	movie: any;
 	constructor(
-		// private route: ActivatedRoute,
-		private location: Location
+		private route: ActivatedRoute,
+		private router: Router,
+		private location: Location,
+		private movieService: MovieService
 	) {
 
+	}
+
+	ngOnInit() {
+		this.route.params
+			.switchMap((params: Params) => this.movieService.getOneMovie(params['rank']))
+		    .subscribe((movie) => this.movieDetail = movie);
 	}
 
 	// ngOnInit(): void {

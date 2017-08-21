@@ -6,13 +6,21 @@ import { BoxofficeComponent } from './index';
 import { MovieDetailComponent } from './movie-detail.component';
 
 const routes: Routes = [
+	// {
+	// 	path: '',
+	// 	component: BoxofficeComponent,
+	// 	children: [
+	// 		// { path: '', redirectTo: 'detail', pathMatch: 'full' },
+	// 		{ path: 'detail/:rank', component: MovieDetailComponent }
+	// 	]
+	// }
 	{
 		path: '',
-		component: BoxofficeComponent,
-		children: [
-			// { path: '', redirectTo: 'detail', pathMatch: 'full' },
-			{ path: 'detail', component: MovieDetailComponent }
-		]
+		component: BoxofficeComponent
+	},
+	{
+		path: 'detail/:rank', 
+		component: MovieDetailComponent
 	}
 	
 ];
