@@ -9,10 +9,12 @@
     <p>One fine body&hellip;</p>
     <table class="table table-hover">
       <tr *ngFor="let row of detail">
-        <th align="center"> <strong>{{row.name}}</strong> </th>
+        <th align="center" class="black-muted-bg"> <strong>{{row.name}}</strong> </th>
         <td align="left"> {{row.value}} </td>
       </tr>
     </table>
+
+
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
