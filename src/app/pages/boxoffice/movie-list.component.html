@@ -15,8 +15,8 @@
   </div>
 </div>   -->
 <div card-group>
- <div class="card-deck">
-    <div class="card" style="width: 20rem" *ngFor="let movie of movies">
+ <div class="card-deck row">
+    <div class="col-sm-3" style="width: 20rem" *ngFor="let movie of movies">
         <img class="img-fluid" src="{{movie.thumbnail}}" alt="{{movie.name}}">
         <div class="card-block">
             <a (clikc)="selectMovie.emit(movie)" routerLink="/detail" routeLinkActive="active">
