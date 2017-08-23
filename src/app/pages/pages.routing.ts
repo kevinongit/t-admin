@@ -21,6 +21,7 @@ export const routes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
       { path: 'boxoffice', loadChildren: './boxoffice/boxoffice.module#BoxofficeModule' },
+      { path: 'golfclub', loadChildren: './golfclub/golfclubs.module#GolfclubsModule' },
       { path: 'customer', loadChildren: './customer/customer.module#CustomerModule' },
       { path: 'editors', loadChildren: './editors/editors.module#EditorsModule' },
       { path: 'components', loadChildren: './components/components.module#ComponentsModule' },

@@ -1,0 +1,159 @@
+<!-- <app-loading [condition]="isLoading"></app-loading> -->
+
+<!-- <app-toast [message]="toast.message"></app-toast> -->
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.10/webfont.js"></script>
+<script type="text/javascript">
+  WebFont.load({
+
+    // For google fonts
+    google: {
+      families: ['Droid Sans', 'Droid Serif']
+    },
+    // For early access or custom font
+    custom: {
+        families: ['Nanum Gothic'],
+        urls: ['http://fonts.googleapis.com/earlyaccess/nanumgothic.css']
+    }
+
+  });
+</script>
+
+
+<div class="card" *ngIf="!isLoading">
+  <h4 class="card-header"> 검색된 골프장 수 ({{golfclubs.length}} 개)</h4>
+  <div>
+    <table width="100%">
+      <thead class="thead-default">
+      </thead>
+      <tbody *ngIf="golfclubs.length === 0">
+        <tr>
+          <td colspan="4">골프장이 존재하지 않습니다. 아래에서 신규로 생성 해주세요.</td>
+        </tr>  
+      </tbody>
+      <tbody *ngIf="!isEditing">
+        <tr style="height:60px; width:100%"><td style="text-align:center;">
+
+<div class="form-group" style="width:80%; text-align: center; margin-left: auto ;margin-right: auto;">
+    <div class="input-group" style="text-align: center">
+            <span class="input-group-addon"><span class="glyphicon">검색</span></span>
+
+        <input type="text" class="form-control" aria-describedby="start-date" placeholder="골프장명을 입력하세요." #search (keyup)="doSearch(search.value)">
+    </div>
+</div>
+
+
+        <td></td></tr>
+        <tr *ngFor="let golfclub of pagedGolfclubs ">
+          <td>
+
+
+            <!-- <pre> -->
+            <table class="table" style="background-color: #f5f5f5; padding:0px;">
+              <tr>
+                <td><table class="table" style="background-color: #f5f5f5;">
+                  <tr>
+                    <td style="font-size: 140%;padding:0px; color:#5AA951;">{{golfclub.name}} <a class="btn" href="{{golfclub.homepage}}"> <i class="fa fa-home"></i> 홈페이지</a></td>
+                  </tr>
+                  <tr>
+                    <td style="font-size: 90%; color:#666;padding:0px; color:#696969;">{{golfclub.address}}<br><font style="font-size: 80%;">퍼블릭18홀이상</font></td>
+                  </tr>
+                  </table></td>
+              </tr>
+              <tr>
+                <td style="padding:0px; padding-left:8px;padding-right:8px;"><table width="100%" class="table-bordered th table-bordered td" style="text-align: center; background-color: #ffffff;">
+                  <tr>
+                    <td style="text-align: center; padding: 4px; font-size:84%; background-color: #F0F0F0;">6월 할인그린피</td>
+                    <td style="text-align: center; vertical-align: middle; padding: 4px; font-size:84%; background-color: #F0F0F0;">월요일</td>
+                    <td style="text-align: center; vertical-align: middle; padding: 4px; font-size:84%; background-color: #F0F0F0;">화~금요일</td>
+                    <td style="text-align: center; vertical-align: middle; padding: 4px; font-size:84%; background-color: #F0F0F0; color:#4286f4">토요일</td>
+                    <td style="text-align: center; vertical-align: middle; padding: 4px; font-size:84%; background-color: #F0F0F0; color:#f44141">일요일</td>
+                  </tr>
+                  <tbody>
+                  <tr>
+                    <td style="color:#666; text-align: center; vertical-align: middle; padding: 4px; font-size:80%;"><img src="../../assets/golfclub/icon_clock.png" width="16px" height="16px" style="opacity: 0.7; vertical-align: text-top;"/> 6:22~7:22</td>
+                    <td style="color:#666; text-align: center; vertical-align: middle; padding: 4px; font-size:80%;">70,000</td>
+                    <td style="color:#666; text-align: center; vertical-align: middle; padding: 4px; font-size:80%;">80,000</td>
+                    <td style="color:#666; text-align: center; vertical-align: middle; padding: 4px; font-size:80%;">190,000</td>
+                    <td style="color:#666; text-align: center; vertical-align: middle; padding: 4px; font-size:80%;">170,000</td>
+                  </tr>
+                  </tbody>
+                  </table></td>
+                  </tr>
+                  <tr><td>
+                  <table class="table" style="padding:0px; background-color: #f5f5f5;"><tr>
+                  <td style="text-align: left; padding: 0px; font-size:84%; width:20%;" >캐디비 {{golfclub.fee_caddy}}원</td>
+                  <td style="text-align: left; padding: 0px; font-size:84%; width:20%;">카트비 {{golfclub.fee_cart}}원</td>
+                  <td style="text-align: right; padding: 0px; font-size:84%; width:60%;"><button class="primary" (click)="onSelect(golfclub)"> 상세정보 </button> </td>
+                  </tr></table>
+                  </td></tr>
+                  </table>
+                  <br>
+            <!-- 			</pre> -->
+          </td>
+        </tr>  
+        <tr><td align="center">
+	        
+	        <!-- pager -->
+        <ul *ngIf="pager.pages && pager.pages.length" class="pagination" style="font-size:80%;">
+            <li [ngClass]="{disabled:pager.currentPage === 1}">
+                <a (click)="setPage(1)">처음</a>
+            </li>
+            <li [ngClass]="{disabled:pager.currentPage === 1}">
+                <a (click)="setPage(pager.currentPage - 1)">이전</a>
+            </li>
+            <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}" style="font-size:80%;">
+                <a (click)="setPage(page)">{{page}}</a>
+            </li>
+            <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                <a (click)="setPage(pager.currentPage + 1)">다음</a>
+            </li>
+            <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                <a (click)="setPage(pager.totalPages)">마지막</a>
+            </li>
+        </ul>
+	        
+        </td></tr>
+      </tbody>
+      <tbody *ngIf="isEditing">
+        <tr>
+          <td colspan="4">
+            <form class="form-inline" #form="ngForm" (ngSubmit)="editGolfclub(golfclub)" style="display:inline">
+              <div class="form-group">
+                  <input class="form-control" type="text" name="name" [(ngModel)]="golfclub.name" placeholder="골프장 이름" required>
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="text" name="address" [(ngModel)]="golfclub.address" placeholder="골프장 주소" required>
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="text" name="desc" [(ngModel)]="golfclub.desc" placeholder="설명" step="any" required>
+              </div>
+              <button class="btn btn-sm btn-primary" type="submit" [disabled]="!form.form.valid"><i class="fa fa-floppy-o"></i> 저장 </button>
+            </form>
+            <button class="btn btn-sm btn-warning" (click)="cancelEditing()"><i class="fa fa-times"></i> 취소 </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card" *ngIf="!isEditing">
+  <h4 class="card-header">골프장 추가</h4>
+  <div class="card-block">
+    <form class="form-inline" [formGroup]="addGolfclubForm" (ngSubmit)="addGolfclub()" style="text-align:center">
+      <div class="form-group">
+          <input class="form-control" type="text" name="name" formControlName="name" placeholder="이름">
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="text" name="address" formControlName="address" placeholder="주소">
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="text" name="desc" formControlName="desc" placeholder="설명" step="any">
+      </div>
+      <button class="btn btn-primary" type="submit" [disabled]="!addGolfclubForm.valid"><i class="fa fa-floppy-o"></i> 추가 </button>
+    </form>
+  </div>
+</div>
