@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Http } from '@angular/http';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import * as _ from 'lodash';
@@ -33,6 +33,7 @@ export class GolfclubsComponent implements OnInit {
               private formBuilder: FormBuilder,
               private http: Http,
               private router: Router,
+              private route: ActivatedRoute
               // public toast: ToastComponent
             ) { }
 
@@ -132,7 +133,9 @@ export class GolfclubsComponent implements OnInit {
 
   onSelect(golfclub) {
     console.log('onSelect : '+ golfclub._id);
-    this.router.navigate(['/golfclub', golfclub._id]);
+    console.log('route : ' + this.route);
+    console.log('router.url : ' + this.router.url);
+    this.router.navigate(['/pages/golfclub', golfclub._id]);
   }
 
 }
