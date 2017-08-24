@@ -22,6 +22,7 @@ export const routes: Routes = [
       { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
       { path: 'boxoffice', loadChildren: './boxoffice/boxoffice.module#BoxofficeModule' },
       { path: 'golfclub', loadChildren: './golfclub/golfclubs.module#GolfclubsModule' },
+      { path: 'engphrase', loadChildren: './engphrase/engphrases.module#EngphrasesModule' },
       { path: 'customer', loadChildren: './customer/customer.module#CustomerModule' },
       { path: 'editors', loadChildren: './editors/editors.module#EditorsModule' },
       { path: 'components', loadChildren: './components/components.module#ComponentsModule' },
