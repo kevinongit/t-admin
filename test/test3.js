@@ -1,12 +1,25 @@
 
-var data = require('./data.json');
-var uid = require('./uid.json');
+var url = "https://source.unsplash.com/random/200x300"
 //console.log(JSON.stringify(data));
 
-for (var i=0; i < data.length; i++) {
-	Object.assign(data[i], uid[i]);
-}
+var request = require('request');
 
-res = data;
+// request({
+//     url: "http://192.168.0.4:3000/api/golfclub",
+//     method: "POST",
+//     json: true,
+//     body: data[1]
+// }, function(error, response, body) {
+//     console.log(response);
+//     console.log("err : " + error);
+// });
 
-console.log(JSON.stringify(res));
+
+    request({
+        url: url,
+        method: "GET",
+        json: true
+    }, function(error, response, body) {
+		if (error) console.log("err : " + error);
+        console.log(response);
+    });
