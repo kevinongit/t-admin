@@ -1,0 +1,37 @@
+[
+    {
+        "username": "user1",
+        "beenRead": false,
+        "sender": "system",
+        "text": "speak of an issue (mostly current) which many people are talking about and which is usually disputed",
+        "time": "1 min ago"
+    },
+    {
+        "username": "user1",
+        "beenRead": false,
+        "sender": "system",
+        "text": "a way of asking what someone is thinking",
+        "time": "2 min ago"
+    },
+    {
+        "username": "user1",
+        "beenRead": true,
+        "sender": "system",
+        "text": "people's intention can be judged better by what they do than what they say",
+        "time": "10 min ago"
+    },
+    {
+        "username": "user1",
+        "beenRead": false,
+        "sender": "system",
+        "text": "to further a loss with mockery or indignity; to worsen an unfavorable situation",
+        "time": "1 hour ago"
+    },
+    {
+        "username": "user1",
+        "beenRead": true,
+        "sender": "system",
+        "text": "very expensive of costly. a large amount of money",
+        "time": "1 day ago"
+    }
+]

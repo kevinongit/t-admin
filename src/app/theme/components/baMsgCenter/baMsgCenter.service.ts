@@ -1,7 +1,15 @@
 import {Injectable} from '@angular/core'
+import { Http, Headers, RequestOptions } from '@angular/http';
+
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class BaMsgCenterService {
+  private headers = new Headers({ 'Content-Type': 'application/json', 'charset': 'UTF-8' });
+  private options = new RequestOptions({ headers: this.headers });
+
+  constructor(private http: Http) { }
 
   private _notifications = [
     {
@@ -78,6 +86,16 @@ export class BaMsgCenterService {
       time: '1 week ago'
     }
   ];
+
+  public getUserMessages(): Observable<any> {
+    console.log("service>getUserMessages()")
+    return this.http.get('/api/usermessages').map(res => res.json());
+  }
+
+  public getUserNotifications(): Observable<any> {
+    return Observable.of(this._notifications);
+    // return this.http.get('/api/usernotifications').map(res => res.json());
+  }
 
   public getMessages():Array<Object> {
     return this._messages;

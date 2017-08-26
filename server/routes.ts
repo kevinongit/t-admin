@@ -7,6 +7,7 @@ import GolfclubCtrl from './controllers/golfclub';
 import DataTest from './controllers/dataTest';
 import InboxHandler from './controllers/inbox/inbox-handler';
 import EngphraseHandler from './controllers/engphrase/engphrase-handler'
+import UserMessageHandler from './controllers/user/user-message-handler'
 
 import Cat from './models/cat';
 import User from './models/user';
@@ -21,6 +22,7 @@ export default function setRoutes(app) {
   const movieCtrl = new MovieCtrl();
   const golfclubCtrl = new GolfclubCtrl();
   const engphraseHandler = new EngphraseHandler();
+  const usermessageHandler = new UserMessageHandler();
 
   // for test
   app.route('/api/test/').get(dataTest.getData);
@@ -36,6 +38,15 @@ export default function setRoutes(app) {
   app.route('/api/engphrase/:id').get(engphraseHandler.get);
   app.route('/api/engphrase/:id').put(engphraseHandler.update);
   app.route('/api/engphrase/:id').delete(engphraseHandler.delete);
+
+  // UserMesage
+  app.route('/api/usermessages').get(usermessageHandler.getAll);
+  app.route('/api/usermessages/count').get(usermessageHandler.count);
+  app.route('/api/usermessage').post(usermessageHandler.insert);
+  app.route('/api/usermessage/:id').get(usermessageHandler.get);
+  app.route('/api/usermessage/:id').put(usermessageHandler.update);
+  app.route('/api/usermessage/:id').delete(usermessageHandler.delete);
+
   // Cats
   app.route('/api/cats').get(catCtrl.getAll);
   app.route('/api/cats/count').get(catCtrl.count);
