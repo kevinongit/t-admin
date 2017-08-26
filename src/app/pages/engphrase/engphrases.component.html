@@ -4,7 +4,8 @@
     <ba-card baCardClass="banner-column-panel">
       <div class="banner">
         <div class="large-banner-wrapper">
-          <img src="{{ ( 'app/typography/banner.png' | baAppPicture ) }}" alt="" />
+          <!-- <img src="{{ ( 'app/typography/banner.png' | baAppPicture ) }}" alt="" /> -->
+          <img src="https://source.unsplash.com/random?sig=8989" alt="" />
         </div>
         <div class="banner-text-wrapper">
           <div class="banner-text">
@@ -20,10 +21,11 @@
         <h2>Columns</h2>
 
         <div class="row">
-          <div class="col-sm-6" *ngFor="let item of engphrases">
+          <div class="col-sm-6" *ngFor="let item of engphrases; let i=index">
             <!-- <div class="img-wrapper"><img src="{{ ( 'app/typography/typo03.png' | baAppPicture ) }}" alt="" title="" />
             </div> -->
-            <div class="img-wrapper"><img src="https://source.unsplash.com/random" alt="" title="" />
+            <!-- kevin 08/26/2017, server will ignore sig param, but it represents a unique img url. -->
+            <div class="img-wrapper"><img src="https://source.unsplash.com/random?sig={{i}}" alt="" title="" />
             </div>
             <h4> {{ item.speaker }} : {{ item.phrase}} </h4>
             <p> {{ item.desc }} </p>
