@@ -8,6 +8,7 @@ import DataTest from './controllers/dataTest';
 import InboxHandler from './controllers/inbox/inbox-handler';
 import EngphraseHandler from './controllers/engphrase/engphrase-handler'
 import UserMessageHandler from './controllers/user/user-message-handler'
+import UserNotificationHandler from './controllers/user/user-notification-handler'
 
 import Cat from './models/cat';
 import User from './models/user';
@@ -23,6 +24,7 @@ export default function setRoutes(app) {
   const golfclubCtrl = new GolfclubCtrl();
   const engphraseHandler = new EngphraseHandler();
   const usermessageHandler = new UserMessageHandler();
+  const usernotificationHandler = new UserNotificationHandler();
 
   // for test
   app.route('/api/test/').get(dataTest.getData);
@@ -46,6 +48,14 @@ export default function setRoutes(app) {
   app.route('/api/usermessage/:id').get(usermessageHandler.get);
   app.route('/api/usermessage/:id').put(usermessageHandler.update);
   app.route('/api/usermessage/:id').delete(usermessageHandler.delete);
+
+  // UserNotification
+  app.route('/api/usernotifications').get(usernotificationHandler.getAll);
+  app.route('/api/usernotifications/count').get(usernotificationHandler.count);
+  app.route('/api/usernotification').post(usernotificationHandler.insert);
+  app.route('/api/usernotification/:id').get(usernotificationHandler.get);
+  app.route('/api/usernotification/:id').put(usernotificationHandler.update);
+  app.route('/api/usernotification/:id').delete(usernotificationHandler.delete);
 
   // Cats
   app.route('/api/cats').get(catCtrl.getAll);

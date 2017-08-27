@@ -1,0 +1,30 @@
+[
+    {
+        "username": "user1",
+        "beenRead": false,
+        "sender": "system",
+        "text": "you've got an email from janet.",
+        "time": "1 min ago"
+    },
+    {
+        "username": "user1",
+        "beenRead": false,
+        "sender": "system",
+        "text": "your request for PO 4223000 has been approved by superman.",
+        "time": "2 min ago"
+    },
+    {
+        "username": "user1",
+        "beenRead": true,
+        "sender": "system",
+        "text": "10 error logs reported.",
+        "time": "10 min ago"
+    },
+    {
+        "username": "user1",
+        "beenRead": true,
+        "sender": "system",
+        "text": "System restarted by admin-chulsoo.",
+        "time": "1 day ago"
+    }
+]

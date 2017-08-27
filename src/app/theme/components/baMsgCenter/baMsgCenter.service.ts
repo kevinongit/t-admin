@@ -93,7 +93,9 @@ export class BaMsgCenterService {
   }
 
   public getUserNotifications(): Observable<any> {
-    return Observable.of(this._notifications);
+    console.log("service>getUserNotifications()")
+    return this.http.get('/api/usernotifications').map(res => res.json());
+    // return Observable.of(this._notifications);
     // return this.http.get('/api/usernotifications').map(res => res.json());
   }
 
