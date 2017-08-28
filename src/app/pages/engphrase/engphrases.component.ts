@@ -15,7 +15,7 @@ import { EngphrasesPagination } from './engphrases-pagination';
   styleUrls: ['./engphrases.component.scss']
 })
 export class EngphrasesComponent implements OnInit {
-
+  numberList = [2, 4, 6, 8];
   engphrase = {};
   engphrases = [];
   pagedEngphrases = [];
@@ -38,7 +38,8 @@ export class EngphrasesComponent implements OnInit {
             ) { }
 
   ngOnInit() {
-    this.getEngphrases();
+    // this.getEngphrases();
+    this.getSomeEngphrases(4);
     this.addEngphraseForm = this.formBuilder.group({
       name: this.name,
       address: this.address,
@@ -48,6 +49,18 @@ export class EngphrasesComponent implements OnInit {
 
   getEngphrases() {
     this.engphraseService.getEngphrases().subscribe(
+      data => { 
+        this.engphrases = data;
+        // initialize to page 1
+        this.setPage(1);
+      },
+      error => console.log(error),
+      () => this.isLoading = false
+    );
+  }
+
+  getSomeEngphrases(num) {
+    this.engphraseService.getSomeEngphrases(num).subscribe(
       data => { 
         this.engphrases = data;
         // initialize to page 1

@@ -16,6 +16,10 @@ export class EngphraseService {
     return this.http.get('/api/engphrases').map(res => res.json());
   }
 
+  getSomeEngphrases(num): Observable<any> {
+    return this.http.get('/api/engphrases2/'+num).map(res => res.json());
+  }
+
   countEngphrases(): Observable<any> {
     return this.http.get('/api/engphrase/count').map(res => res.json());
   }
