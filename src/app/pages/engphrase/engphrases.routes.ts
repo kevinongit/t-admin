@@ -1,10 +1,10 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EngphrasesComponent }    from './engphrases.component';
-import { EngphrasesDetailComponent }  from './engphrases-detail.component';
+import { EngphrasesCreateComponent }  from './engphrases-create.component';
 const routes: Routes = [
   { path: '',  component: EngphrasesComponent },
-  { path: ':_id', component: EngphrasesDetailComponent }
+  { path: '/create', component: EngphrasesCreateComponent }
 ];
 // @NgModule({
 //   imports: [

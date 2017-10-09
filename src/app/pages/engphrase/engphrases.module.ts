@@ -2,7 +2,7 @@ import { NgModule }       from '@angular/core';
 import { CommonModule }   from '@angular/common';
 import { FormsModule, ReactiveFormsModule }    from '@angular/forms';
 import { EngphrasesComponent }    from './engphrases.component';
-import { EngphrasesDetailComponent }  from './engphrases-detail.component';
+import { EngphrasesCreateComponent }  from './engphrases-create.component';
 import { EngphraseService } from './engphrase.service'
 import { EngphrasesPagination } from './engphrases-pagination';
 import { routing } from './engphrases.routes';
@@ -20,7 +20,7 @@ import { NgaModule } from '../../theme/nga.module';
   ],
   declarations: [
     EngphrasesComponent,
-    EngphrasesDetailComponent
+    EngphrasesCreateComponent
   ],
   providers: [ EngphraseService, EngphrasesPagination ]
 })
